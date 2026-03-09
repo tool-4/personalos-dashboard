@@ -8,10 +8,12 @@ import {
   Wallet,
   Brain,
   Settings2,
-  Moon
+  Moon,
+  Sun
 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/hooks/use-theme';
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/', color: 'text-os-primary', activeBar: 'bg-os-primary' },
   { icon: Target, label: 'Goals', href: '/goals', color: 'text-os-goal', activeBar: 'bg-os-goal' },
@@ -22,6 +24,7 @@ const navItems = [
 ];
 export function Sidebar() {
   const location = useLocation();
+  const { isDark, toggleTheme } = useTheme();
   const isActive = (href: string) => {
     if (href === '/' && location.pathname !== '/') return false;
     return location.pathname === href || (href !== '/' && location.pathname.startsWith(href));
@@ -55,11 +58,20 @@ export function Sidebar() {
       <div className="flex flex-col gap-4">
         <Tooltip>
           <TooltipTrigger asChild>
-            <button className="w-10 h-10 flex items-center justify-center rounded-lg text-os-muted hover:bg-white/5 hover:text-white">
-              <Moon className="w-5 h-5" />
+            <button 
+              onClick={toggleTheme}
+              className="w-10 h-10 flex items-center justify-center rounded-lg text-os-muted hover:bg-white/5 hover:text-white transition-colors"
+            >
+              {isDark ? (
+                <Moon className="w-5 h-5 text-os-primary" />
+              ) : (
+                <Sun className="w-5 h-5 text-os-money" />
+              )}
             </button>
           </TooltipTrigger>
-          <TooltipContent side="right" className="font-bold text-[10px] uppercase tracking-widest">Theme</TooltipContent>
+          <TooltipContent side="right" className="font-bold text-[10px] uppercase tracking-widest">
+            {isDark ? 'Dark Mode' : 'Light Mode'}
+          </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger asChild>

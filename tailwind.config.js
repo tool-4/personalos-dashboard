@@ -8,6 +8,10 @@ export default {
         sans: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
+      gridTemplateColumns: {
+        '7': 'repeat(7, minmax(0, 1fr))',
+        '13': 'repeat(13, minmax(0, 1fr))',
+      },
       colors: {
         os: {
           bg: '#0f0f0f',

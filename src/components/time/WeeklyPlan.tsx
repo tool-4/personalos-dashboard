@@ -9,22 +9,24 @@ export function WeeklyPlan() {
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-sm font-bold uppercase tracking-widest text-os-muted">This Week's Schedule</h2>
         </div>
-        <div className="grid grid-cols-7 gap-2 min-h-[500px]">
-          {MOCK_WEEKLY_DATA.days.map((day) => (
-            <div key={day} className="flex flex-col gap-2">
-              <div className="bg-os-card border border-os-border py-2 text-center rounded-lg">
-                <span className="text-xs font-bold text-white">{day}</span>
+        <div className="overflow-x-auto custom-scrollbar pb-4">
+          <div className="grid grid-cols-7 gap-2 min-h-[500px] min-w-[800px]">
+            {MOCK_WEEKLY_DATA.days.map((day) => (
+              <div key={day} className="flex flex-col gap-2">
+                <div className="bg-os-card border border-os-border py-2 text-center rounded-lg">
+                  <span className="text-xs font-bold text-white uppercase tracking-tighter">{day}</span>
+                </div>
+                <div className="flex-1 bg-os-card/30 border border-os-border/50 rounded-lg p-2 space-y-2">
+                  {MOCK_WEEKLY_DATA.blocks
+                    .filter(b => (b as any).day === day)
+                    .map(block => (
+                      <TimeBlockElement key={block.id} block={block as TimeBlock} />
+                    ))
+                  }
+                </div>
               </div>
-              <div className="flex-1 bg-os-card/30 border border-os-border/50 rounded-lg p-2 space-y-2">
-                {MOCK_WEEKLY_DATA.blocks
-                  .filter(b => (b as any).day === day)
-                  .map(block => (
-                    <TimeBlockElement key={block.id} block={block as TimeBlock} />
-                  ))
-                }
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <div className="space-y-6">
@@ -53,7 +55,9 @@ export function WeeklyPlan() {
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
                     <span className="text-xs text-os-text">{name}</span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-os-muted">12h</span>
+                  <span className="text-[10px] font-mono font-bold text-os-muted">
+                    {name === 'Deep Work' ? '12h' : name === 'Health' ? '4h' : '6h'}
+                  </span>
                 </div>
               ))}
             </div>
