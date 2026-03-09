@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/', color: 'text-os-primary' },
   { icon: Target, label: 'Goals', href: '/goals', color: 'text-os-goal' },
-  { icon: Clock, label: 'Timeline', href: '/timeline', color: 'text-os-time' },
+  { icon: Clock, label: 'Timeline', href: '/timeline', color: 'text-[#0ea5e9]' },
   { icon: Zap, label: 'Health', href: '/health', color: 'text-os-health' },
   { icon: Wallet, label: 'Finance', href: '/finance', color: 'text-os-money' },
   { icon: Brain, label: 'Mindset', href: '/mindset', color: 'text-os-mind' },
@@ -35,12 +35,12 @@ export function Sidebar() {
               <Link
                 to={item.href}
                 className={cn(
-                  "w-10 h-10 flex items-center justify-center rounded-lg transition-all group relative",
-                  isActive(item.href) ? "bg-os-primary/10 text-os-primary" : "text-os-muted hover:bg-white/5 hover:text-white"
+                  "w-10 h-10 flex items-center justify-center rounded-lg transition-all group relative border border-transparent",
+                  isActive(item.href) ? "bg-white/5 border-os-border/50 text-white" : "text-os-muted hover:bg-white/5 hover:text-white"
                 )}
               >
-                <item.icon className="w-5 h-5" />
-                {isActive(item.href) && <div className="absolute left-0 top-2 bottom-2 w-0.5 bg-os-primary rounded-r-full" />}
+                <item.icon className={cn("w-5 h-5 transition-colors", isActive(item.href) ? item.color : "")} />
+                {isActive(item.href) && <div className={cn("absolute left-0 top-2 bottom-2 w-0.5 rounded-r-full", isActive(item.href) && item.href === '/timeline' ? "bg-[#0ea5e9]" : "bg-os-primary")} />}
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right">{item.label}</TooltipContent>

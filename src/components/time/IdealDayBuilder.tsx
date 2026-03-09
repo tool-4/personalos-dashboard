@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { CATEGORY_COLORS } from './time-types';
+import { CATEGORY_COLORS } from './TimeShared';
 const HOURS = Array.from({ length: 24 }, (_, i) => `${i.toString().padStart(2, '0')}:00`);
 export function IdealDayBuilder() {
   return (
@@ -28,7 +28,7 @@ export function IdealDayBuilder() {
                 </div>
                 <div className="flex-1 relative border-l border-os-border/50 px-4 py-2 hover:bg-white/5 transition-colors">
                   {hour === '09:00' && (
-                    <div
+                    <div 
                       className="absolute inset-x-2 top-0 bottom-[-80px] rounded-lg border-2 border-dashed border-[#0ea5e9]/40 bg-[#0ea5e9]/5 p-3 z-10"
                     >
                       <div className="text-[10px] font-bold text-[#0ea5e9] uppercase">Deep Work Block</div>
