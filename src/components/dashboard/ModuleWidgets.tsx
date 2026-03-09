@@ -28,7 +28,11 @@ export function ModuleWidgets() {
               <span>PROGRESS</span>
               <span>{m.value}</span>
             </div>
-            <Progress value={parseInt(m.value) || 75} className="h-1 bg-os-bg" indicatorClassName="" style={{ '--progress-background': m.color } as any} />
+            <Progress 
+              value={parseInt(m.value) || 75} 
+              className="h-1 bg-os-bg" 
+              style={{ '--progress-background': m.color } as React.CSSProperties} 
+            />
           </div>
         </div>
       ))}

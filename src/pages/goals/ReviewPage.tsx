@@ -5,7 +5,6 @@ import { PersonalLayout } from '@/components/layout/PersonalLayout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 const activeGoals = [
   { id: '1', title: 'Lose 10kg through Keto and Strength Training', category: 'Health & Fitness', color: '#10b981' },
   { id: '2', title: 'Read 24 books on system architecture', category: 'Learning & Growth', color: '#6366f1' },
@@ -50,8 +49,8 @@ export function ReviewPage() {
                       <label className="text-xs font-bold text-os-muted uppercase flex items-center gap-1.5">
                         <TrendingUp className="w-3 h-3 text-os-primary" /> Wins & Lessons
                       </label>
-                      <textarea
-                        placeholder="What went well? What did you learn?"
+                      <textarea 
+                        placeholder="What went well? What did you learn?" 
                         className="w-full bg-os-bg border border-os-border rounded-lg p-3 text-sm text-white min-h-[100px] focus:outline-none focus:border-[#6366f1]"
                       />
                     </div>

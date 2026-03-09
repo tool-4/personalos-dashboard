@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { MilestoneList } from '@/components/goals/GoalComponents';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 export function GoalDetailPage() {
   const { id } = useParams();
   return (
