@@ -18,6 +18,8 @@ import { NewGoalPage } from '@/pages/goals/NewGoalPage'
 import { ReviewPage } from '@/pages/goals/ReviewPage'
 import { TimelinePage } from '@/pages/timeline/TimelinePage'
 import { FinancePage } from '@/pages/finance/FinancePage'
+import { HealthPage } from '@/pages/health/HealthPage'
+import { MindsetPage } from '@/pages/mindset/MindsetPage'
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
@@ -38,6 +40,16 @@ const router = createBrowserRouter([
   {
     path: "/finance",
     element: <FinancePage />,
+    errorElement: <RouteErrorBoundary />,
+  },
+  {
+    path: "/health",
+    element: <HealthPage />,
+    errorElement: <RouteErrorBoundary />,
+  },
+  {
+    path: "/mindset",
+    element: <MindsetPage />,
     errorElement: <RouteErrorBoundary />,
   },
   {
