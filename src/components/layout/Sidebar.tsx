@@ -41,6 +41,7 @@ export function Sidebar() {
               >
                 <item.icon className={cn("w-5 h-5 transition-colors", isActive(item.href) ? item.color : "")} />
                 {isActive(item.href) && <div className={cn("absolute left-0 top-2 bottom-2 w-0.5 rounded-r-full", isActive(item.href) && item.href === '/timeline' ? "bg-[#0ea5e9]" : "bg-os-primary")} />}
+                {isActive(item.href) && <div className={cn("absolute left-0 top-2 bottom-2 w-0.5 rounded-r-full", item.href === '/timeline' ? "bg-[#0ea5e9]" : item.href === '/finance' ? "bg-os-money" : "bg-os-primary")} />}
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right">{item.label}</TooltipContent>

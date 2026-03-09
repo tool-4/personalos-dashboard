@@ -17,6 +17,7 @@ import { GoalDetailPage } from '@/pages/goals/GoalDetailPage'
 import { NewGoalPage } from '@/pages/goals/NewGoalPage'
 import { ReviewPage } from '@/pages/goals/ReviewPage'
 import { TimelinePage } from '@/pages/timeline/TimelinePage'
+import { FinancePage } from '@/pages/finance/FinancePage'
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
   {
     path: "/timeline",
     element: <TimelinePage />,
+    errorElement: <RouteErrorBoundary />,
+  },
+  {
+    path: "/finance",
+    element: <FinancePage />,
     errorElement: <RouteErrorBoundary />,
   },
   {
