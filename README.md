@@ -1,6 +1,6 @@
 # Personal OS
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tool-4/personalos-dashboard)
 
 A modern, fullstack starter template for building personal dashboards and productivity apps on Cloudflare Workers and Pages. Features a responsive React frontend with shadcn/ui components, Tailwind CSS, API routes powered by Hono, TanStack Query, dark mode support, and seamless deployment.
 
@@ -89,7 +89,7 @@ This builds assets and deploys via Wrangler.
 - Set `wrangler.toml` secrets: `wrangler secret put NAME`.
 - Assets are SPA-routed; API on `/api/*`.
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tool-4/personalos-dashboard)
 
 **Direct Deploy**: Use the Cloudflare button above or [Cloudflare Dashboard](https://dash.cloudflare.com/?to=/:account/workers/new?name=personal-os-djnukoevj0n1upiza_zt4&url=${repositoryUrl}).
 
