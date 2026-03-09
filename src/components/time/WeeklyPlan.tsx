@@ -1,7 +1,7 @@
 import React from 'react';
-import { MOCK_WEEKLY_DATA, TimeBlockElement, CATEGORY_COLORS } from './TimeShared';
+import { TimeBlockElement } from './TimeShared';
+import { MOCK_WEEKLY_DATA, CATEGORY_COLORS, TimeBlock } from './time-types';
 import { Progress } from '@/components/ui/progress';
-import { Badge } from '@/components/ui/badge';
 export function WeeklyPlan() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -19,7 +19,7 @@ export function WeeklyPlan() {
                 {MOCK_WEEKLY_DATA.blocks
                   .filter(b => (b as any).day === day)
                   .map(block => (
-                    <TimeBlockElement key={block.id} block={block as any} />
+                    <TimeBlockElement key={block.id} block={block as TimeBlock} />
                   ))
                 }
               </div>
@@ -35,14 +35,14 @@ export function WeeklyPlan() {
               <span className="text-os-muted">DEEP WORK TARGET</span>
               <span className="text-white">20 / 25h</span>
             </div>
-            <Progress value={80} className="h-1.5 bg-os-bg" style={{ '--progress-background': '#0ea5e9' } as any} />
+            <Progress value={80} className="h-1.5 bg-os-bg" style={{ '--progress-background': '#0ea5e9' } as React.CSSProperties} />
           </div>
           <div className="space-y-3">
             <div className="flex justify-between text-xs font-bold">
               <span className="text-os-muted">EFFICIENCY SCORE</span>
               <span className="text-[#10b981]">92%</span>
             </div>
-            <Progress value={92} className="h-1.5 bg-os-bg" style={{ '--progress-background': '#10b981' } as any} />
+            <Progress value={92} className="h-1.5 bg-os-bg" style={{ '--progress-background': '#10b981' } as React.CSSProperties} />
           </div>
           <div className="pt-4 border-t border-os-border space-y-4">
             <div className="text-[10px] font-bold text-os-muted uppercase">Allocation</div>
